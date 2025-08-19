@@ -1,0 +1,345 @@
+
+  CREATE TABLE "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE" 
+   (	"REPORT_DATE" DATE, 
+	"BANK_NAME" VARCHAR2(100 BYTE), 
+	"GROUP_HEAD_OFFICE_SUBSIDIARY" VARCHAR2(50 BYTE), 
+	"SUBSIDIARY" VARCHAR2(50 BYTE), 
+	"BANK_SYMBOL" VARCHAR2(50 BYTE), 
+	"CONVENTIONAL_ISLAMIC" VARCHAR2(50 BYTE), 
+	"LOCAL_FOREIGN" VARCHAR2(50 BYTE), 
+	"CBUAE_TIERING" VARCHAR2(50 BYTE), 
+	"ASSET_BALANCE_SHEET_SIZE_AED" NUMBER(24,2), 
+	"CASH_AED" NUMBER(24,2), 
+	"CASH_PERCENT" NUMBER(24,2), 
+	"DUE_FROM_CENTRAL_BANK_AED" NUMBER(24,2), 
+	"DUE_FROM_CENTRAL_BANK_PERCENT" NUMBER(24,2), 
+	"DUE_FROM_HO_BRANCH_SUBS_AED" NUMBER(24,2), 
+	"DUE_FROM_HO_BRANCH_SUBS_PERCENT" NUMBER(24,2), 
+	"DUE_FROM_BANKS_AED" NUMBER(24,2), 
+	"DUE_FROM_BANKS_PERCENT" NUMBER(24,2), 
+	"DUE_FROM_NBFI_AED" NUMBER(24,2), 
+	"DUE_FROM_NBFI_PERCENT" NUMBER(24,2), 
+	"INVESTMENT_AED" NUMBER(24,2), 
+	"INVESTMENT_PERCENT" NUMBER(24,2), 
+	"OTHER_INVESTMENTS_AED" NUMBER(24,2), 
+	"OTHER_INVESTMENTS_PERCENT" NUMBER(24,2), 
+	"NET_CREDIT_PORTFOLIO_AED" NUMBER(24,2), 
+	"NET_CREDIT_PORTFOLIO_PERCENT" NUMBER(24,2), 
+	"TRADE_BILLS_AED" NUMBER(24,2), 
+	"TRADE_BILLS_PERCENT" NUMBER(24,2), 
+	"NET_FIXED_OTHER_ASSETS_AED" NUMBER(24,2), 
+	"NET_FIXED_OTHER_ASSETS_PERCENT" NUMBER(24,2), 
+	"POSITIVE_FV_DERIVATIVES_AED" NUMBER(24,2), 
+	"POSITIVE_FV_DERIVATIVES_PERCENT" NUMBER(24,2), 
+	"LIABILITY_BALANCE_SHEET_SIZE_AED" NUMBER(24,2), 
+	"DUE_TO_CENTRAL_BANK_AED" NUMBER(24,2), 
+	"DUE_TO_CENTRAL_BANK_PERCENT" NUMBER(24,2), 
+	"DUE_TO_HO_BRANCH_SUBS_AED" NUMBER(24,2), 
+	"DUE_TO_HO_PERCENT" NUMBER(24,2), 
+	"DUE_TO_BANKS_AED" NUMBER(24,2), 
+	"DUE_TO_BANKS_PERCENT" NUMBER(24,2), 
+	"DUE_TO_NBFI_AED" NUMBER(24,2), 
+	"DUE_TO_NBFI_PERCENT" NUMBER(24,2), 
+	"CUSTOMER_DEPOSIT_AED" NUMBER(24,2), 
+	"CUSTOMER_DEPOSIT_PERCENT" NUMBER(24,2), 
+	"LONG_TERM_FUNDING_AED" NUMBER(24,2), 
+	"LONG_TERM_FUNDING_PERCENT" NUMBER(24,2), 
+	"OTHER_LIABILITIES_AED" NUMBER(24,2), 
+	"OTHER_LIABILITIES_PERCENT" NUMBER(24,2), 
+	"NEGATIVE_FV_DERIVATIVES_AED" NUMBER(24,2), 
+	"NEGATIVE_FV_DERIVATIVES_PERCENT" NUMBER(24,2), 
+	"CAPITAL_RESERVES_AED" NUMBER(24,2), 
+	"CAPITAL_RESERVES_PERCENT" NUMBER(24,2), 
+	"SHORT_TERM_REG_RATIO_REQ" NUMBER(24,2), 
+	"HQ_ASSETS_CONVERTED_AED" NUMBER(24,2), 
+	"OUTFLOWS_30D_AED" NUMBER(24,2), 
+	"INFLOWS_30D_AED" NUMBER(24,2), 
+	"LCR" NUMBER(24,2), 
+	"AED_HQ_ASSETS" NUMBER(24,2), 
+	"AED_OUTFLOWS_30D" NUMBER(24,2), 
+	"AED_INFLOWS_30D" NUMBER(24,2), 
+	"AED_LCR" NUMBER(24,2), 
+	"USD_HQ_ASSETS" NUMBER(24,2), 
+	"USD_OUTFLOWS_30D" NUMBER(24,2), 
+	"USD_INFLOWS_30D" NUMBER(24,2), 
+	"USD_LCR" NUMBER(24,2), 
+	"ELAR_HQ_ASSETS_CONVERTED_AED" NUMBER(24,2), 
+	"TOTAL_LIABILITIES_CONVERTED_AED" NUMBER(24,2), 
+	"ELIGIBLE_ASSET_RATIO" NUMBER(24,2), 
+	"AED_ELAR_HQ_ASSETS" NUMBER(24,2), 
+	"AED_TOTAL_LIABILITIES" NUMBER(24,2), 
+	"AED_ELIGIBLR_ASSET_RATIO" NUMBER(24,2), 
+	"USD_ELAR_HQ_ASSETS" NUMBER(24,2), 
+	"USD_TOTAL_LIABILITIES" NUMBER(24,2), 
+	"USD_EIGIBLE_ASSET_RATIO" NUMBER(24,2), 
+	"ASF_CONVERTED_AED" NUMBER(24,2), 
+	"RSF_CONVERTED_AED" NUMBER(24,2), 
+	"NSFR" NUMBER(24,2), 
+	"AED_ASF" NUMBER(24,2), 
+	"AED_RSF" NUMBER(24,2), 
+	"AED_NSFR" NUMBER(24,2), 
+	"USD_ASF" NUMBER(24,2), 
+	"USD_RSF" NUMBER(24,2), 
+	"USD_NSFR" NUMBER(24,2), 
+	"LOANS_ADVANCES_CONVERTED_AED" NUMBER(24,2), 
+	"STABLE_RESOURCES_CONVERTED_AED" NUMBER(24,2), 
+	"LOANS_TO_STABLE_RESOURCES_RATIO" NUMBER(24,2), 
+	"AED_LOANS_ADVANCES" NUMBER(24,2), 
+	"AED_STABLE_RESOURCES" NUMBER(24,2), 
+	"AED_LTS_RATIO" NUMBER(24,2), 
+	"USD_LOANS_ADVANCES" NUMBER(24,2), 
+	"USD_STABLE_RESOURCES" NUMBER(24,2), 
+	"USD_LTS_RATIO" NUMBER(24,2), 
+	"STABLE_TERM_DEPOSIT_AED" NUMBER(24,2), 
+	"VOLATILE_TERM_DEPOSIT_AED" NUMBER(24,2), 
+	"STABLE_CASA_AED" NUMBER(24,2), 
+	"VOLATILE_CASA_AED" NUMBER(24,2), 
+	"TERM_DEPOSIT_AED" NUMBER(24,2), 
+	"CASA_AED" NUMBER(24,2), 
+	"LOANS_TO_DEPOSITS_RATIO" NUMBER(24,2), 
+	"STABLE_TERM_DEPOSIT_TO_ASSETS" NUMBER(24,2), 
+	"VOLATILE_TERM_DEPOSIT_TO_ASSETS" NUMBER(24,2), 
+	"STABLE_CASA_TO_ASSETS" NUMBER(24,2), 
+	"VOLATILE_CASA_TO_ASSETS" NUMBER(24,2), 
+	"LIQUID_ASSETS_TO_TOTAL_DEPOSITS" NUMBER(24,2), 
+	"LIQUID_ASSETS_TO_TOTAL_CASA" NUMBER(24,2), 
+	"SIX_MONTH_CASH_FLOW_GAP_AED" NUMBER(24,2), 
+	"TOTAL_LIABILITIES_EXCL_CAPITAL" NUMBER(24,2), 
+	"SIX_MONTH_GAP_RATIO" NUMBER(24,2), 
+	"AED_SIX_MONTH_CASH_FLOW_GAP" NUMBER(24,2), 
+	"AED_LIABILITIES_EXCL_CAPITAL" NUMBER(24,2), 
+	"AED_SIX_MONTH_GAP_RATIO" NUMBER(24,2), 
+	"USD_SIX_MONTH_CASH_FLOW_GAP" NUMBER(24,2), 
+	"USD_LIABILITIES_EXCL_CAPITAL" NUMBER(24,2), 
+	"USD_SIX_MONTH_GAP_RATIO" NUMBER(24,2), 
+	"THREE_MONTH_CASH_FLOW_GAP_AED" NUMBER(24,2), 
+	"THREE_MONTH_GAP_RATIO" NUMBER(24,2), 
+	"ONE_MONTH_CASH_FLOW_GAP_AED" NUMBER(24,2), 
+	"ONE_MONTH_GAP_RATIO" NUMBER(24,2), 
+	"SEVEN_DAY_CASH_FLOW_GAP_AED" NUMBER(24,2), 
+	"SEVEN_DAY_GAP_RATIO" NUMBER(24,2), 
+	"UNENCUMBERED_LIQUID_ASSETS_AED" NUMBER(24,2), 
+	"ONE_MONTH_CASH_FLOW_GAP_COPY" NUMBER(24,2), 
+	"UNENCUMBERED_TO_1M_GAP_RATIO" NUMBER(24,2), 
+	"CBUAE_CASH_BALANCES" NUMBER(24,2), 
+	"CBUAE_CASH_BALANCES_PERCENT" NUMBER(24,2), 
+	"MONEY_MKT_PLACEMENTS_LT_6M" NUMBER(24,2), 
+	"MONEY_MKT_PLACEMENTS_LT_6M_PERCENT" NUMBER(24,2), 
+	"LOCAL_CURRENCY_GOVT_BONDS" NUMBER(24,2), 
+	"LOCAL_CURRENCY_GOVT_BONDS_PERCENT" NUMBER(24,2), 
+	"HARD_CURRENCY_GOVT_BONDS" NUMBER(24,2), 
+	"HARD_CURRENCY_GOVT_BONDS_PERCENT" NUMBER(24,2), 
+	"FOREIGN_GOVT_BONDS" NUMBER(24,2), 
+	"FOREIGN_GOVT_BONDS_PERCENT" NUMBER(24,2), 
+	"PLEDGE_SECURITIES" NUMBER(24,2), 
+	"TOTAL_PLEDGEABLE_SECURITIES" NUMBER(24,2), 
+	"PLEDGE_RATIO" NUMBER(24,2), 
+	"TOTAL_COMPLEX_FIN_INSTRUMENTS" NUMBER(24,2), 
+	"TOTAL_TRADABLE_ASSETS" NUMBER(24,2), 
+	"COMPLEX_TO_TRADABLE_RATIO" NUMBER(24,2), 
+	"TOP_10_DEPOSITS" NUMBER(24,2), 
+	"TOTAL_DEPOSITS_AED1" NUMBER(24,2), 
+	"TOP_10_TO_TOTAL_RATIO" NUMBER(24,2), 
+	"ST_IB_BORROWING_LT_3M" NUMBER(24,2), 
+	"ST_REPO_LT_3M" NUMBER(24,2), 
+	"INTERBANK_BORROWING" NUMBER(24,2), 
+	"REPO_AGREEMENTS" NUMBER(24,2), 
+	"TOTAL_DEPOSITS_AED2" NUMBER(24,2), 
+	"LONG_TERM_FUNDING_COPY" NUMBER(24,2), 
+	"ST_IB_REPO_TO_TOTAL_FUNDING_RATIO" NUMBER(24,2), 
+	"LARGEST_SINGLE_DEPOSITOR" NUMBER(24,2), 
+	"INDIVIDUAL_COUNTERPARTY_TO_TOTAL_FUNDING_RATIO" NUMBER(24,2), 
+	"UNUTILIZED_LOANS_CREDIT_LINES" NUMBER(24,2), 
+	"DERIVATIVES_EXPECTED_NEG_EXPOSURE" NUMBER(24,2), 
+	"DERIVATIVES_EXPECTED_NEG_EXPOSURE_PROXY" NUMBER(24,2), 
+	"CONTINGENT_LIABILITIES" NUMBER(24,2), 
+	"CONTINGENT_LIABILITIES_TO_TOTAL_FUNDING_RATIO" NUMBER(24,2), 
+	"TOP_5_INDUSTRY_DEPOSITS" NUMBER(24,2), 
+	"TOP_5_TO_TOTAL_DEPOSITS_RATIO" NUMBER(24,2), 
+	"LONG_TERM_LIABILITIES_TO_TOTAL_LIABILITIES_RATIO" NUMBER(24,2), 
+	"REPORT_FROM_DATE" DATE, 
+	"REPORT_TO_DATE" DATE, 
+	"ENTITY_FLG" VARCHAR2(1 BYTE), 
+	"MODIFY_FLG" VARCHAR2(1 BYTE), 
+	"DEL_FLG" VARCHAR2(1 BYTE), 
+	"REPORT_CODE" VARCHAR2(10 BYTE), 
+	"REPORT_SUBMIT_DATE" DATE, 
+	"ENTRY_USER" VARCHAR2(20 BYTE), 
+	"MODIFY_USER" VARCHAR2(20 BYTE), 
+	"VERIFY_USER" VARCHAR2(20 BYTE), 
+	"ENTRY_TIME" DATE, 
+	"MODIFY_TIME" DATE, 
+	"VERIFY_TIME" DATE, 
+	"SI_NO" NUMBER(10,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "BCBUAE_LIQ_RISK_DASHB_TEM_TS" ;
+
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."BANK_NAME" IS 'Select your bank name in the list. Do not override the dropdown list. In case the bank name is not in the list please select other and inform CBUAE accordingly.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."GROUP_HEAD_OFFICE_SUBSIDIARY" IS 'Indicate whether the data reported pertain to the head office (solo), any subsidiary/branch or are on a consolidated basis (Head office  + Branch/Subsidiary). For the purpose of the reporting, data must be reported for both head office, subsidiary and consolidated (after consolidating both head office and subsidiary/branches).';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."SUBSIDIARY" IS 'For any entity with subsidiary/branch plase select the subsidiary/branch as per the list.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."BANK_SYMBOL" IS 'Refers to CBUAE internal code.  Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."CONVENTIONAL_ISLAMIC" IS 'Differentiation between Islamic and Conventional Institution.  Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."LOCAL_FOREIGN" IS 'Differentiation between local and foreign subsidiaries as per CBUAE.  Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."CBUAE_TIERING" IS 'Internal CBUAE Tiering classification. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."ASSET_BALANCE_SHEET_SIZE_AED" IS 'Report the balance sheet assets outstanding converted into AED as per the latest audited financials for the relevant period.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."CASH_AED" IS 'Report the Cash outstanding amount converted into AED as per the latest audited financials for the relevant period.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."CASH_PERCENT" IS 'Proportion of cash items with respect to the balance sheet size converted into AED. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."DUE_FROM_CENTRAL_BANK_AED" IS 'Report any outstanding amount placed with Central Bank as per the latest audited financials for the relevant period converted into AED. The amount should include Mbills and Central Bank CDs.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."DUE_FROM_CENTRAL_BANK_PERCENT" IS 'Proportion of  outstanding amount placed with Central Bank with respect to the balance sheet size converted into AED. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."DUE_FROM_HO_BRANCH_SUBS_AED" IS 'Report any amount placed with any head office/subsidiary/branch as per the latest audited financials for the relevant period converted into AED.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."DUE_FROM_HO_BRANCH_SUBS_PERCENT" IS 'Proportion of amount placed with any subsidiary/branch/head office with respect to the balance sheet size converted into AED. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."DUE_FROM_BANKS_AED" IS 'Report the outstanding amount lent to any bank including interbank placements.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."DUE_FROM_BANKS_PERCENT" IS 'Proportion of interbank placement with respect to the balance sheet size converted into AED. Field restricted to CBUAE. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."DUE_FROM_NBFI_AED" IS 'Report the outstanding amount lent to any non-banking financial institutions. NBFI will include finance and investment companies, exchange houses, leasing companies, representative offices of financial institutions, insurance companies and brokers.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."DUE_FROM_NBFI_PERCENT" IS 'Proportion of placement in NBFI with respect to the balance sheet size converted into AED. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."INVESTMENT_AED" IS 'Report the market value of the outstanding investment securities in AED.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."INVESTMENT_PERCENT" IS 'For CBUAE. Relative size of the banks investment portfolio with respect to the balance sheet. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."OTHER_INVESTMENTS_AED" IS 'Report any investment in subsidary/branches converted into AED.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."OTHER_INVESTMENTS_PERCENT" IS 'Proportion of other investments with respect to the balance sheet size converted into AED. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."NET_CREDIT_PORTFOLIO_AED" IS 'Report the outstanding loans amount after deduction of the provisions and converted into AED.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."NET_CREDIT_PORTFOLIO_PERCENT" IS 'Proportion of net outstanding loanswith respect to the balance sheet size converted into AED. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."TRADE_BILLS_AED" IS 'Net Credit portfolio (%)';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."TRADE_BILLS_PERCENT" IS 'Proportion of Trade Bills with respect to the balance sheet size converted into AED. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."NET_FIXED_OTHER_ASSETS_AED" IS 'Report all fixed and other assets converted into AED.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."NET_FIXED_OTHER_ASSETS_PERCENT" IS 'Proportion of Net Fixed Assets  Assets with respect to the balance sheet size converted into AED. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."POSITIVE_FV_DERIVATIVES_AED" IS 'Report the positive fair value of the outstanding derivatives converted into AED.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."POSITIVE_FV_DERIVATIVES_PERCENT" IS 'Proportion of positive fair value of the outstanding derivatives with respect to the balance sheet size converted into AED. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."LIABILITY_BALANCE_SHEET_SIZE_AED" IS 'Report the balance sheet liabilities outstanding converted into AED as per the latest audited financials for the relevant period.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."DUE_TO_CENTRAL_BANK_AED" IS 'Report any outstanding amount owed to Central Bank as per the latest audited financials for the relevant period converted into AED.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."DUE_TO_CENTRAL_BANK_PERCENT" IS 'Proportion of  outstanding amount owed Central Bank with respect to the balance sheet size converted into AED. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."DUE_TO_HO_BRANCH_SUBS_AED" IS 'Report any amount placed with any head office/subsidiary/branch as per the latest audited financials for the relevant period converted into AED.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."DUE_TO_HO_PERCENT" IS 'Proportion of amount placed with any subsidiary/branch with respect to the balance sheet size converted into AED. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."DUE_TO_BANKS_AED" IS 'Report the outstanding amount borrowed from any bank including interbank placements.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."DUE_TO_BANKS_PERCENT" IS 'Proportion of outstanding amount borrowed from any bank with respect to the balance sheet size converted into AED. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."DUE_TO_NBFI_AED" IS 'Report the outstanding amount borrowed from any non-banking financial institutions converted into AED. NBFI will include finance and investment companies, exchange houses, leasing companies, representative offices of financial institutions, insurance companies and brokers.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."DUE_TO_NBFI_PERCENT" IS 'Proportion of outstanding amount borrowed from NBFI with respect to the balance sheet size converted into AED. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."CUSTOMER_DEPOSIT_AED" IS 'Report the outstanding amount of customer deposits converted into AED.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."CUSTOMER_DEPOSIT_PERCENT" IS 'Proportion of outstanding customer deposits amount with respect to the balance sheet size converted into AED. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."LONG_TERM_FUNDING_AED" IS 'Report the outstanding amount of Bonds/Sukuks/EMNTN issued on capital market with a residual maturity greater than 1 year and converted into AED. Please include AT1, Tier 2 instruments as they represent a stable funding source.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."LONG_TERM_FUNDING_PERCENT" IS 'Proportion of long term funding amount with respect to the balance sheet size converted into AED. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."OTHER_LIABILITIES_AED" IS 'Report the outstanding amount of any other liability converted into AED.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."OTHER_LIABILITIES_PERCENT" IS 'Proportion of other liabilities amount with respect to the balance sheet size converted into AED. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."NEGATIVE_FV_DERIVATIVES_AED" IS 'Report the negative fair value of the outstanding amount of derivatives converted into AED.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."NEGATIVE_FV_DERIVATIVES_PERCENT" IS 'Proportion of negative fair value of the outstanding derivatives with respect to the balance sheet size converted into AED. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."CAPITAL_RESERVES_AED" IS 'Report any capital and reserves amount (excluding AT1 and Tier 2 instruments) converted into AED.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."CAPITAL_RESERVES_PERCENT" IS 'Proportion of Capital  amount with respect to the balance sheet size converted into AED. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."SHORT_TERM_REG_RATIO_REQ" IS 'Indicate whether the bank is subject to LCR or ELAR as per regulatory requirements.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."HQ_ASSETS_CONVERTED_AED" IS 'Report the HQLA outstanding amount as per LCR converted into AED. Only applicable to banks subject to LCR requirements.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."OUTFLOWS_30D_AED" IS 'Report the outstanding outflows over the next 30 days calendar days as per LCR calculation and converted into AED. Only applicable to banks subject to LCR requirements.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."INFLOWS_30D_AED" IS 'Report the outstanding inflows over the next 30 days calendar days as per LCR calculation and converted into AED. Only applicable to banks subject to LCR requirements.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."LCR" IS 'Calculated as the ratio of the stock of high quality liquid assets / total net cash outflows over 30 days. Only applicable to banks subject to LCR requirements. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."AED_HQ_ASSETS" IS 'Report the HQLA outstanding amount only denominated in AED. Only applicable to banks subject to LCR requirements and for UAE head office.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."AED_OUTFLOWS_30D" IS 'Report only AED outflows over the next 30 days calendar days as per LCR calculation. Only applicable to banks subject to LCR requirements and for UAE head office.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."AED_INFLOWS_30D" IS 'Report only AED inflows over the next 30 days calendar days as per LCR calculation. Only applicable to banks subject to LCR requirements and for UAE head office.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."AED_LCR" IS 'Calculated as the ratio of the stock of AED high quality liquid assets / AED total net cash outflows over 30 days. Only applicable to banks subject to LCR requirements and for UAE head office. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."USD_HQ_ASSETS" IS 'Report the HQLA outstanding amount only denominated in USD. Only applicable to banks subject to LCR requirements and for UAE head office..';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."USD_OUTFLOWS_30D" IS 'USD High-Quality Assets (AED)';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."USD_INFLOWS_30D" IS 'Report only USD outflows over the next 30 days calendar days as per LCR calculation and converted into AED. Only applicable to banks subject to LCR requirements and for UAE head office.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."USD_LCR" IS 'Calculated as the ratio of the stock of USD high quality liquid assets / USD total net cash outflows over 30 days. Only applicable to banks subject to LCR requirements and for UAE head office. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."ELAR_HQ_ASSETS_CONVERTED_AED" IS 'Report the HQLA outstanding amount as per ELAR converted into AED. Only applicable to banks subject to ELAR requirements.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."TOTAL_LIABILITIES_CONVERTED_AED" IS 'Report the outstanding total liabilities (excluding off-balance sheet) as per ELAR requirements and converted into AED. Only applicable to banks subject to ELAR requirements.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."ELIGIBLE_ASSET_RATIO" IS 'Calculated as the ratio of Stock of high quality liquid assets as per CBUAE converted into AED  / total liabilities converted into AED. Field restricted to CBUAE. Only applicable to banks subject to ELAR requirements.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."AED_ELAR_HQ_ASSETS" IS 'Report the HQLA outstanding amount only denominated in AED as per ELAR calculation. Only applicable to banks subject to ELAR requirements and for UAE head office.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."AED_TOTAL_LIABILITIES" IS 'Report the outstanding AED total liabilities (excluding off-balance sheet) as per ELAR requirements. Only applicable to banks subject to ELAR requirements and for UAE head office.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."AED_ELIGIBLR_ASSET_RATIO" IS 'Calculated as the ratio of AED Stock of high quality liquid assets as per CBUAE / AED total liabilities. Only applicable to banks subject to ELAR requirements and for UAE head office. Field restricted to CBUAE';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."USD_ELAR_HQ_ASSETS" IS 'Report the HQLA outstanding amount only denominated in USD  as per ELAR and converted into AED. Only applicable to banks subject to ELAR requirements and for UAE head office.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."USD_TOTAL_LIABILITIES" IS 'Report the outstanding amount of USD total liabilities converted into AED (excluding off-balance sheet) as per ELAR requirements. Only applicable to banks subject to ELAR requirements and for UAE head office.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."USD_EIGIBLE_ASSET_RATIO" IS 'Calculated as the ratio of USD Stock of high quality liquid assets as per CBUAE / USD total liabilities. Only applicable to banks subject to ELAR requirements and for UAE head office. Field restricted to CBUAE';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."ASF_CONVERTED_AED" IS 'Report the available stable funding amount converted into AED as per NSFR requirements. Only applicable to banks subject to NSFR requirements.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."RSF_CONVERTED_AED" IS 'Report the required stable funding amount converted into AED as per NSFR requirements. Only applicable to banks subject to NSFR requirements.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."NSFR" IS 'Calculated as the ratio of available amount of stable funding converted into AED / required amount of stable funding converted into AED. Only applicable to banks subject to NSFR requirements. Field restricted to CBUAE';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."AED_ASF" IS 'Report only the AED available stable funding amount as per NSFR requirements. Only applicable to banks subject to NSFR requirements and UAE head office.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."AED_RSF" IS 'Report only the AED required stable funding amount as per NSFR requirements. Only applicable to banks subject to NSFR requirements and UAE head office.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."AED_NSFR" IS 'Calculated as the ratio of AED available amount of stable funding / AED required amount of stable . Only applicable to banks subject to NSFR requirements and UAE head office. Field restricted to CBUAE';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."USD_ASF" IS 'Report only the USD available stable funding amount as per NSFR requirements and converted into AED. Only applicable to banks subject to NSFR requirements and UAE head office.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."USD_RSF" IS 'Report only the USD required stable funding amount as per NSFR requirements and converted into AED. Only applicable to banks subject to NSFR requirements and UAE head office.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."USD_NSFR" IS 'Calculated as the ratio of USD available amount of stable funding / USD required amount of stable. Only applicable to banks subject to NSFR requirements and UAE head office. Field restricted to CBUAE';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."LOANS_ADVANCES_CONVERTED_AED" IS 'Report the outstanding amount of loans and advances as per LSRR and converted into AED. Only applicable to banks subject to LSRR/ASRR requirements.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."STABLE_RESOURCES_CONVERTED_AED" IS 'Report the outstanding amount of Stable Resources as per LSRR and converted into AED. Only applicable to banks subject to LSRR/ASRR requirements.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."LOANS_TO_STABLE_RESOURCES_RATIO" IS 'Calculated as the ratio of Loans and Advances converted into AED / Stable Resources and converted into AED. Only applicable to banks subject to LSRR requirements. Field restricted to CBUAE';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."AED_LOANS_ADVANCES" IS 'Report only the AED outstanding amount of loans and advances as per LSRR. Only applicable to banks subject to LSRR/ASRR requirements and for UAE Head Office.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."AED_STABLE_RESOURCES" IS 'Report only the AED the outstanding amount of Stable Resources as per LSRR. Only applicable to banks subject to LSRR/ASRR requirements and for UAE head Office.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."AED_LTS_RATIO" IS 'Calculated as the ratio of AED Loans and Advances  / AED Stable Resources. Only applicable to banks subject to LSRR requirements and for UAE Head Office. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."USD_LOANS_ADVANCES" IS 'Report only the USD outstanding amount of loans and advances as per LSRR. Only applicable to banks subject to LSRR/ASRR requirements and for UAE Head Office.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."USD_STABLE_RESOURCES" IS 'Report only the USD the outstanding amount of Stable Resources as per LSRR. Only applicable to banks subject to LSRR/ASRR requirements and for UAE head Office.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."USD_LTS_RATIO" IS 'Calculated as the ratio of USD Loans and Advances  / USD Stable Resources. Only applicable to banks subject to LSRR requirements and for UAE Head Office. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."STABLE_TERM_DEPOSIT_AED" IS 'Banks should distinguish between the stable and the non-stable parts of each deposits category (Term and CASA for each business segment) using observed volume changes over the past 10 years. The stable portion is the portion that is found to remain undrawn with a high degree of likelihood. Please report the outstading amount of stable term deposit converted into AED based on internal behavioral modelling.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."VOLATILE_TERM_DEPOSIT_AED" IS 'Please report the outstading amount of unstable term deposit converted into AED based on internal behavioral modelling.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."STABLE_CASA_AED" IS 'Please report the outstading amount of stable CASA converted into AED based on internal behavioral modelling.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."VOLATILE_CASA_AED" IS 'Please report the outstading amount of unstable CASA converted into AED based on internal behavioral modelling.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."TERM_DEPOSIT_AED" IS 'Outstading amount of Term Deposit converted into AED calculated by the sum of both stable and unstable term deposit. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."CASA_AED" IS 'Outstading amount of Term Deposit converted into AED calculated by the sum of both stable and unstable term deposit. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."LOANS_TO_DEPOSITS_RATIO" IS 'Outstading amount of CASA Deposit converted into AED calculated by the sum of both stable and unstable CASA. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."STABLE_TERM_DEPOSIT_TO_ASSETS" IS 'Calculated as the ratio of Loans converted into AED  / Deposits converted into AED. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."VOLATILE_TERM_DEPOSIT_TO_ASSETS" IS 'Calculated as the ratio of Unstable Term Deposit converted into AED  / Total Assets converted into AED. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."STABLE_CASA_TO_ASSETS" IS 'Calculated as the ratio of Stable CASA converted into AED  / Total Assets converted into AED. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."VOLATILE_CASA_TO_ASSETS" IS 'Calculated as the ratio of Unstable CASA converted into AED  / Total Assets converted into AED. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."LIQUID_ASSETS_TO_TOTAL_DEPOSITS" IS 'Calculated as the ratio of Liquid Asset (ELAR or LCR) converted into AED  / Total Deposits converted into AED. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."LIQUID_ASSETS_TO_TOTAL_CASA" IS 'Calculated as the ratio of Liquid Asset (ELAR or LCR) converted into AED  / Total CASA Deposits converted into AED. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."SIX_MONTH_CASH_FLOW_GAP_AED" IS 'Please report the cumulated net difference (cumulative cash inflows – cumulative cash outflows) between inflows and outflows converted into AED over a period of 6 months.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."TOTAL_LIABILITIES_EXCL_CAPITAL" IS 'Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."SIX_MONTH_GAP_RATIO" IS 'Calculated as the ratio of (cumulative cash inflows – cumulative cash outflows) for 6 months / Total Liabilities converted into AED. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."AED_SIX_MONTH_CASH_FLOW_GAP" IS 'Please report the cumulated net difference (AED cumulative cash inflows – AED cumulative cash outflows) between AED inflows and AED outflows over a period of 6 months.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."AED_LIABILITIES_EXCL_CAPITAL" IS 'Please report the total liabilities denominated into AED after excluding capital , other items and off-balance sheet items (exclude all items that do not give rise to cash outflows).';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."AED_SIX_MONTH_GAP_RATIO" IS 'Calculated as the ratio of (AED cumulative cash inflows – AED cumulative cash outflows) for 6 months  / AED Total Liabilities. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."USD_SIX_MONTH_CASH_FLOW_GAP" IS 'Please report the cumulated net difference (USD cumulative cash inflows – USD cumulative cash outflows) between USD inflows and USD outflows over a period of 6 months and converted into AED.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."USD_LIABILITIES_EXCL_CAPITAL" IS 'Please report the total liabilities denominated into USD converted into AED after excluding capital , other items and off-balance sheet items (exclude all items that do not give rise to cash outflows).';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."USD_SIX_MONTH_GAP_RATIO" IS 'Please report the total liabilities denominated into USD converted into AED after excluding capital , other items and off-balance sheet items (exclude all items that do not give rise to cash outflows).';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."THREE_MONTH_CASH_FLOW_GAP_AED" IS 'Please report the total liabilities denominated into USD converted into AED after excluding capital , other items and off-balance sheet items (exclude all items that do not give rise to cash outflows).';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."THREE_MONTH_GAP_RATIO" IS 'Calculated as the ratio of 6 Month USD Cumulative Cash Flow Gap  / USD Total Liabilities. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."ONE_MONTH_CASH_FLOW_GAP_AED" IS 'Please report the cumulated net difference (cumulative cash inflows – cumulative cash outflows) between inflows and outflows over a period of 3 months and converted into AED.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."ONE_MONTH_GAP_RATIO" IS 'Calculated as the ratio of (cumulative cash inflows – cumulative cash outflows) converted into AED for 3 months  / Total Liabilities converted into AED. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."SEVEN_DAY_CASH_FLOW_GAP_AED" IS 'Please report the cumulated net difference (cumulative cash inflows – cumulative cash outflows) between inflows and outflows over a period of 1 months and converted into AED.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."SEVEN_DAY_GAP_RATIO" IS 'Calculated as the ratio of (cumulative cash inflows – cumulative cash outflows) converted into AED for 1 months  / Total Liabilities converted into AED. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."UNENCUMBERED_LIQUID_ASSETS_AED" IS 'Unencumbered liquid assets refers to cash, central bank balances including obligatory reserve only if they are fully withdrawalable without any restriction, unencumbered fixed income instruments, money market placements with remaining tenor of less than 6 months.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."ONE_MONTH_CASH_FLOW_GAP_COPY" IS 'Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."UNENCUMBERED_TO_1M_GAP_RATIO" IS 'Calculated as the ratio between unencumbered liquid assets (cash, central bank balances including obligatory reserve and MBills, unencumbered fixed income instruments, money market placements with remaining tenor of less than 6 months) / 1-month cumulative cash flow gap.  Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."CBUAE_CASH_BALANCES" IS 'Include cash, central bank balances including Mbills and obligatory reserves only if they are fully withdrawalable without any restriction, converted into AED.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."CBUAE_CASH_BALANCES_PERCENT" IS 'Include cash, central bank balances including Mbills and obligatory reserves only if they are fully withdrawalable without any restriction, converted into AED.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."MONEY_MKT_PLACEMENTS_LT_6M" IS 'Report all interbank placements outstanding (including Reverse Repo) with a residual maturity below 6 months converted into AED.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."MONEY_MKT_PLACEMENTS_LT_6M_PERCENT" IS 'Proportion of all interbank placements outstanding (including Reverse Repo) with a residual maturity below 6 months converted into AED in the liquidity reserve. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."LOCAL_CURRENCY_GOVT_BONDS" IS 'Report the outstanding amount of bonds/sukuks issued by sovereign in their local currency and converted into AED.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."LOCAL_CURRENCY_GOVT_BONDS_PERCENT" IS 'Proportion of outstanding amount of bonds/sukuks issued by sovereign in local currency in the liquidity reserve. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."HARD_CURRENCY_GOVT_BONDS" IS 'Report the outstanding amount of unencumbered bonds/sukuks issued by sovereign in USD currency between 0% and 20% RWA as per Basel standardized approach and converted into AED.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."HARD_CURRENCY_GOVT_BONDS_PERCENT" IS 'Proportion of outstanding amount of unencumbered bonds/sukuks issued by sovereign in USD currency between 0% and 20% RWA as per Basel standardized approach and converted into AED in the liquidity reserve. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."FOREIGN_GOVT_BONDS" IS 'Report the outstanding amount of unencumbered bonds/sukuks issued by sovereign in non-USD/non-local currency between 0% and 20% RWA as per Basel standardized approach and converted into AED.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."FOREIGN_GOVT_BONDS_PERCENT" IS 'Proportion of outstanding amount of enencumbered bonds/sukuks issued by sovereign in non-USD/non-local currency between 0% and 20% RWA as per Basel standardized approach in the liquidity reserve and converted into AED. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."PLEDGE_SECURITIES" IS 'Report the oustanding amount of unencumbered securities converted into AED.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."TOTAL_PLEDGEABLE_SECURITIES" IS 'Report the oustanding amount of unencumbered securities that are eligible for CBUAE lending facility (MLF/CLF/CLIF) under the Dhirram Monetary Framework and converted into AED.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."PLEDGE_RATIO" IS 'Calculated as the ratio of encumbered securities / Total Pledgeable Securities. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."TOTAL_COMPLEX_FIN_INSTRUMENTS" IS 'Report the net outstanding amount of financial instruments that are illiquid/marked to model and converted into AED.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."TOTAL_TRADABLE_ASSETS" IS 'Report the outstanding amount of assets that can be converted into cash and converted into AED. Field Restricted to CBUAE';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."COMPLEX_TO_TRADABLE_RATIO" IS 'Calculated as the ratio of  financial instruments marked to model or illiquid marked to market / total tradable assets. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."TOP_10_DEPOSITS" IS 'Calculated as the ratio of  financial instruments marked to model or illiquid marked to market / total tradable assets. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."TOTAL_DEPOSITS_AED1" IS 'Report the outstanding amount of top 10 depositors converted into AED.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."TOP_10_TO_TOTAL_RATIO" IS 'Outstanding amount of total deposits converted into AED. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."ST_IB_BORROWING_LT_3M" IS 'Report the outstanding amount interbank borrowing with a residual maturity less than 3 months and converted into AED.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."ST_REPO_LT_3M" IS 'Report the outstanding amount Repurchase agreement with a residual maturity less than 3 months and converted into AED.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."INTERBANK_BORROWING" IS 'Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."REPO_AGREEMENTS" IS 'Report the outstanding amount Repurchase agreement converted into AED.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."TOTAL_DEPOSITS_AED2" IS 'Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."LONG_TERM_FUNDING_COPY" IS 'Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."ST_IB_REPO_TO_TOTAL_FUNDING_RATIO" IS 'Calculated as the ratio of (interbank borrowing + repurchase agreements) with residual maturity of less than 3 months / (interbank borrowing + repurchase agreements + customer deposits + EMTN). Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."LARGEST_SINGLE_DEPOSITOR" IS 'Report the largest single deposit amount converted into AED.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."INDIVIDUAL_COUNTERPARTY_TO_TOTAL_FUNDING_RATIO" IS 'Calculated as the ratio of top depositor / (interbank borrowing + repurchase agreements + customer deposits + EMTN). Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."UNUTILIZED_LOANS_CREDIT_LINES" IS 'Report the outstanding amount of undrawn commitment converted into AED.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."DERIVATIVES_EXPECTED_NEG_EXPOSURE" IS 'Report the outstanding amount of Expected Negative Exposure derived from internal counterparty credit risk framework for derivatives converted into AED. Leave it blank if the bank is not able to compute the ENE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."DERIVATIVES_EXPECTED_NEG_EXPOSURE_PROXY" IS 'In case the bank is unable to calculate the former ENE we scale up the negative fair value of derivatives by 20%. Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."CONTINGENT_LIABILITIES" IS 'Calculated as the sum of the outstanding amount of derivatives expected negative exposure and unutilized loans and credit lines converted into AED.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."CONTINGENT_LIABILITIES_TO_TOTAL_FUNDING_RATIO" IS 'Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."TOP_5_INDUSTRY_DEPOSITS" IS 'Report the outstanding amount of the top 5 largest deposits towards specific industries converted in AED (e.g., Oil , manufacturing, telecommunication, hospitality, etc..).';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."TOP_5_TO_TOTAL_DEPOSITS_RATIO" IS 'Calculated as the ratio of unutilized loans and credit lines + Derivatives Expected Negative Exposure) / (interbank borrowing + repurchase agreements + customer deposits + EMTN/LT liabilities). Field restricted to CBUAE.';
+   COMMENT ON COLUMN "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE"."LONG_TERM_LIABILITIES_TO_TOTAL_LIABILITIES_RATIO" IS 'Calculated as the ratio of liabilities greater 1 year / total liability (excluding issued shares)';
+
+  CREATE INDEX "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE_INDEX" ON "CXBRL"."BCBUAE_LIQUIDITY_RISK_DASHBOARD_TEMPLATE" ("SI_NO", "REPORT_DATE", "BANK_NAME") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "BCBUAE_LIQ_RISK_DASHB_TEM_TS" ;
+
