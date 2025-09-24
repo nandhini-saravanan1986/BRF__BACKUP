@@ -1,0 +1,155 @@
+create or replace PROCEDURE MIS_REPORT_WORKING (REPORT_DATE VARCHAR2) IS 
+
+  V_REPORT_DATE DATE := TO_DATE(REPORT_DATE,'DD-MM-YYYY');
+
+BEGIN
+
+  -- Delete old data for the report date
+  DELETE FROM mis_treasury_limits WHERE REPORT_DATE = V_REPORT_DATE;
+  DELETE FROM mis_settlement_and_credit_amount_table WHERE REPORT_DATE = V_REPORT_DATE;
+  DELETE FROM MIS_BANK_LIMITS WHERE REPORT_DATE = V_REPORT_DATE;
+  COMMIT;
+
+  -- TREASURY PLACEMENTS WORKING
+  INSERT INTO mis_treasury_limits (PORTEFEUILLE, COUNTERPARTY, AMT_AED, AMT_GBP, AMT_EUR, AMT_USD, REPORT_DATE)
+  SELECT portefeuille, contrepartie,
+         SUM(CASE WHEN devise_1 = 'AED' THEN nominal_1 ELSE 0 END) AS AED_AMT,
+         SUM(CASE WHEN devise_1 = 'GBP' THEN nominal_1 ELSE 0 END) AS GBP_AMT,
+         SUM(CASE WHEN devise_1 = 'EUR' THEN nominal_1 ELSE 0 END) AS EUR_AMT,
+         SUM(CASE WHEN devise_1 = 'USD' THEN nominal_1 ELSE 0 END) AS USD_AMT,
+         REPORT_DATE
+  FROM mis_treasury_placement 
+  WHERE report_date = V_REPORT_DATE 
+    AND portefeuille = 'AE-PLC-IB'
+  GROUP BY portefeuille, contrepartie, REPORT_DATE;
+
+  -- Calculate USD equivalent
+  UPDATE mis_treasury_limits 
+  SET IN_USD_MN = ROUND(((AMT_AED / 3.673) + (AMT_GBP / 1.226) + (AMT_EUR / 1.061) + (AMT_USD / 1)) / 1000000, 2)
+  WHERE REPORT_DATE = V_REPORT_DATE;
+
+  -- Update bank names in treasury limits
+  MERGE INTO MIS_TREASURY_LIMITS B
+  USING (
+    SELECT DISTINCT COUNTERPARTY_CODE, COUNTER_PARTY_BANK
+    FROM MIS_COUNTER_PARTY_TABLE
+  ) A
+  ON (A.COUNTERPARTY_CODE = B.COUNTERPARTY)
+  WHEN MATCHED THEN
+    UPDATE SET B.BANK_NAME = A.COUNTER_PARTY_BANK
+    WHERE B.REPORT_DATE = V_REPORT_DATE;
+
+  -- SETTLEMENT WORKING
+  UPDATE mis_settlement 
+  SET AMOUNT = CASE WHEN SECURITY IN ('EUR/USD', 'GBP/USD') THEN ABS(AMOUNT2) ELSE ABS(AMOUNT1) END,
+      RESIDUAL_MATURITY = MATURITY_DATE - REPORT_DATE,
+      CCF = CASE 
+              WHEN (MATURITY_DATE - REPORT_DATE) <= 365 THEN '2%'
+              WHEN (MATURITY_DATE - REPORT_DATE) BETWEEN 366 AND 1825 THEN '10%'
+              WHEN (MATURITY_DATE - REPORT_DATE) > 1825 THEN '15%'
+              ELSE NULL 
+            END
+  WHERE REPORT_DATE = V_REPORT_DATE;
+
+  UPDATE MIS_SETTLEMENT 
+  SET CCF_AMOUNT = AMOUNT * TO_NUMBER(REPLACE(CCF, '%', '') / 100) 
+  WHERE REPORT_DATE = V_REPORT_DATE;
+
+  -- Update bank names in settlement
+  MERGE INTO MIS_SETTLEMENT B
+  USING (
+    SELECT DISTINCT COUNTERPARTY_CODE, COUNTER_PARTY_BANK
+    FROM MIS_COUNTER_PARTY_TABLE
+    WHERE COUNTER_PARTY_BANK IS NOT NULL
+  ) A
+  ON (A.COUNTERPARTY_CODE = B.COUNTERPARTY_CODE)
+  WHEN MATCHED THEN
+    UPDATE SET B.COUNTERPARTY_NAME = A.COUNTER_PARTY_BANK
+    WHERE B.REPORT_DATE = V_REPORT_DATE;
+
+  -- GENERATE SETTLEMENT AMOUNT
+  INSERT INTO mis_settlement_and_credit_amount_table (counterparty_name, REPORT_DATE, SETTLEMENT_AMOUNT)
+  SELECT counterparty_name,
+         REPORT_DATE,
+         ROUND(SUM(total_amount) / 1000000, 2) AS settlement_amount
+  FROM (
+    SELECT counterparty_name,
+           REPORT_DATE,
+           SUM(amount) AS total_amount
+    FROM mis_settlement
+    WHERE REPORT_DATE = V_REPORT_DATE
+      AND counterparty_name IS NOT NULL
+    GROUP BY counterparty_name, residual_maturity, REPORT_DATE
+    HAVING COUNT(*) > 1
+  )
+  GROUP BY counterparty_name, REPORT_DATE;
+
+  -- Update CREDIT_AMOUNT in settlement and credit amount table
+  MERGE INTO mis_settlement_and_credit_amount_table M
+  USING (
+    SELECT counterparty_name, ROUND(SUM(ccf_amount) / 1000000, 2) AS ccf_amount 
+    FROM mis_settlement 
+    WHERE report_date = V_REPORT_DATE 
+    GROUP BY counterparty_name
+  ) S
+  ON (M.counterparty_name = S.counterparty_name)
+  WHEN MATCHED THEN 
+    UPDATE SET M.CREDIT_AMOUNT = S.ccf_amount 
+    WHERE REPORT_DATE = V_REPORT_DATE;
+
+  -- Insert bank limits
+  INSERT INTO MIS_BANK_LIMITS(S_NO,BANK_NAME, COUNTRY_OF_ORIGIN, RATING, REG_LIMIT, ADHOC_LIMIT, TOTAL_LIMIT, CREDIT_LIMIT, SETTLEMENT_LIMIT,
+                             MONEY_MARKET_LIMIT, TRADE_FINANCE_LIMITS, REPORT_DATE)
+  SELECT SRL_NO_SEQ.nextval,counter_party_bank, location, rating, regular_limit, adhoc_limit, regular_limit + adhoc_limit, credit_limit, settlement_limit,
+         money_market_limit, trade_finance_limit, V_REPORT_DATE
+  FROM mis_counter_party_table 
+  WHERE NVL(del_flg, 'N') = 'N' 
+    AND expiry_date > V_REPORT_DATE;
+
+  -- Update exposures in bank limits (SETTLEMENT_EXPOSURE, FX_EXPOSURE)
+  MERGE INTO MIS_BANK_LIMITS tgt
+  USING (
+    SELECT counterparty_name,
+           SUM(settlement_amount) AS total_settlement_amount,
+           SUM(credit_amount) AS total_credit_amount
+    FROM mis_settlement_and_credit_amount_table
+    WHERE report_date = V_REPORT_DATE
+    GROUP BY counterparty_name
+  ) src
+  ON (tgt.BANK_NAME = src.COUNTERPARTY_NAME)
+  WHEN MATCHED THEN
+    UPDATE SET
+      tgt.SETTLEMENT_EXPOSURE = src.TOTAL_SETTLEMENT_AMOUNT,
+      tgt.FX_EXPOSURE = src.TOTAL_CREDIT_AMOUNT;
+
+  -- Update TRADE_FINANCE_EXPOSURE in bank limits
+ MERGE INTO MIS_BANK_LIMITS tgt
+  USING (
+  select counterparty_bank,sum(TRADE_FINANCE_EXPOSURE) as TRADE_FINANCE_EXPOSURE from(
+    SELECT lower(counterparty_bank) as counterparty_bank,
+           ROUND(SUM(NVL(BUYERS_CREDIT, 0) + NVL(FOREIGN_BILL_DISCOUNTING, 0) + NVL(LOCAL_BILL_DISCOUNTING, 0) + 
+                     NVL(GUARANTEE_SBLCS, 0) + NVL(SYNDICATED_LOANS_INVESTMENT, 0) + NVL(OTHERS, 0)) / 1000000, 2) AS TRADE_FINANCE_EXPOSURE
+    FROM MIS_ASL_DETAIL_REPORT
+    WHERE REPORT_DATE = v_report_date
+    GROUP BY counterparty_bank) group by counterparty_bank
+  ) src
+  ON (lower(tgt.BANK_NAME) = src.counterparty_bank)
+  WHEN MATCHED THEN
+    UPDATE SET tgt.TRADE_FINANCE_EXPOSURE = src.TRADE_FINANCE_EXPOSURE;
+
+  -- Update MONEY_MARKET_EXPOSURE in bank limits
+  MERGE INTO MIS_BANK_LIMITS tgt
+  USING (
+    SELECT bank_name,
+           SUM(in_usd_mn) AS MONEY_MARKET_EXPOSURE
+    FROM mis_treasury_limits
+    WHERE REPORT_DATE = V_REPORT_DATE
+    GROUP BY bank_name
+  ) src
+  ON (tgt.BANK_NAME = src.bank_name)
+  WHEN MATCHED THEN
+    UPDATE SET tgt.MONEY_MARKET_EXPOSURE = src.MONEY_MARKET_EXPOSURE;
+
+  COMMIT;
+
+END MIS_REPORT_WORKING;
